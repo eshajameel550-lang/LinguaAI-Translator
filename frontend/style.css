@@ -1,0 +1,314 @@
+:root {
+    --bg-dark: #0f1012;
+    --card-bg: #17181c;
+    --panel-bg: #1e2026;
+    --border-subtle: #2c2f38;
+    --gold-accent: #d4af37;
+    --gold-hover: #e5c352;
+    --text-primary: #f5f3ee;
+    --text-muted: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.app-wrapper {
+    width: 100%;
+    max-width: 960px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Brand Logo Styling */
+.brand-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.brand-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1.5px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.18);
+    transition: transform 0.25s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+    margin-bottom: 0.85rem;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.header h1 span {
+    color: var(--gold-accent);
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Main Card */
+.translator-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Controls Bar */
+.controls-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.select-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.select-group label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+select {
+    background-color: var(--panel-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+select:focus {
+    border-color: var(--gold-accent);
+}
+
+.swap-btn {
+    background-color: var(--panel-bg);
+    color: var(--gold-accent);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    width: 46px;
+    height: 44px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.swap-btn:hover {
+    border-color: var(--gold-accent);
+    transform: rotate(180deg);
+}
+
+/* Panels Grid */
+.panels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px;
+    transition: border-color 0.2s ease;
+}
+
+.input-panel:focus-within {
+    border-color: var(--gold-accent);
+}
+
+textarea {
+    width: 100%;
+    height: 165px;
+    background: transparent;
+    border: none;
+    resize: none;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    outline: none;
+}
+
+textarea::placeholder {
+    color: #6b7280;
+}
+
+.output-display {
+    height: 165px;
+    overflow-y: auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.output-display.placeholder {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* RTL Support for Urdu & Arabic */
+.rtl-text {
+    direction: rtl;
+    text-align: right;
+    font-size: 1.25rem;
+}
+
+.panel-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    border-color: var(--gold-accent);
+    color: var(--gold-accent);
+}
+
+/* Primary Button */
+.primary-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold-accent), #b89225);
+    color: #0f1012;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    padding: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.primary-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid #0f1012;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+    .panels-grid {
+        grid-template-columns: 1fr;
+    }
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .swap-btn {
+        align-self: center;
+    }
+}

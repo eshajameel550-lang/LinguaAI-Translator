@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaAI — Neural Language Translator</title>
+    <link rel="icon" type="image/png" href="/static/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand-logo-wrap">
+                <img src="/static/logo.png" alt="LinguaAI Logo" class="brand-logo" />
+            </div>
+            <div class="badge">CodeAlpha AI Internship • Task 1</div>
+            <h1>Lingua<span>AI</span> Translator</h1>
+            <p>Precision multi-language translation powered by Python FastAPI &amp; Neural Engines.</p>
+        </header>
+
+        <!-- Main Translator Card -->
+        <main class="translator-card">
+            <!-- Language Control Bar -->
+            <div class="controls-bar">
+                <div class="select-group">
+                    <label for="source-lang">From</label>
+                    <select id="source-lang">
+                        <option value="English" selected>English</option>
+                        <option value="Urdu">Urdu</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="French">French</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="German">German</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Turkish">Turkish</option>
+                    </select>
+                </div>
+
+                <button id="swap-btn" class="swap-btn" title="Swap Languages" aria-label="Swap Languages">
+                    ⇄
+                </button>
+
+                <div class="select-group">
+                    <label for="target-lang">To</label>
+                    <select id="target-lang">
+                        <option value="English">English</option>
+                        <option value="Urdu" selected>Urdu</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="French">French</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="German">German</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Turkish">Turkish</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dual Text Areas -->
+            <div class="panels-grid">
+                <!-- Input Panel -->
+                <div class="panel input-panel">
+                    <textarea id="input-text" placeholder="Enter text to translate..." maxlength="2000"></textarea>
+                    <div class="panel-footer">
+                        <span id="char-count">0 / 2000</span>
+                        <button id="clear-btn" class="icon-btn" title="Clear text">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="panel output-panel">
+                    <div id="output-text" class="output-display placeholder">Translation will appear here...</div>
+                    <div class="panel-footer">
+                        <span id="status-text" class="status-text">Ready</span>
+                        <div class="action-buttons">
+                            <button id="speak-btn" class="icon-btn" title="Listen">🔊 Listen</button>
+                            <button id="copy-btn" class="icon-btn" title="Copy translation">📋 Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Action Button -->
+            <div class="submit-row">
+                <button id="translate-btn" class="primary-btn">
+                    <span class="btn-text">Translate Text</span>
+                    <span class="loader hidden" id="loader"></span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            Engineered with Python FastAPI, HTML5, CSS3 &amp; Vanilla JS • Built by Esha Jameel
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
