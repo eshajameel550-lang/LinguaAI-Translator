@@ -1,31 +1,75 @@
-# LinguaAI — Full-Stack Language Translation App
+# LinguaAI Translator
 
-LinguaAI is a full-stack web application built for real-time, multi-language text translation. Developed as Task 1 of my Artificial Intelligence Internship at CodeAlpha, this project moves beyond basic script interfaces by pairing a decoupled Python FastAPI backend with a custom-designed HTML, CSS, and JavaScript frontend.
+LinguaAI Translator is a full-stack web application designed for fast, accurate, and distraction-free text translation across multiple languages. Built with a Python FastAPI backend and a clean, responsive HTML/CSS/JavaScript frontend, the project focuses on low-latency API communication and a straightforward user experience.
 
-## Why I Built It This Way
-Instead of relying on a single translation endpoint or a pre-built UI wrapper, I structured this project using a standard client-server architecture:
-- **Reliability:** Translation APIs can occasionally hit rate limits. To prevent the app from breaking for the user, the backend uses `GoogleTranslator` as the primary engine and automatically falls back to `MyMemoryTranslator` if an error occurs.
-- **Custom User Experience:** The frontend is built from scratch with a dark editorial theme, live character tracking, one-click language swapping, Right-to-Left (RTL) text alignment for Urdu and Arabic, and browser-based Text-to-Speech.
+## Key Features
 
-## Project Structure
-- `backend/main.py` — FastAPI server, Pydantic validation, and translation logic
-- `frontend/index.html` — Semantic UI layout
-- `frontend/style.css` — Custom styling and responsive layout
-- `frontend/script.js` — Fetch API integration, RTL handling, copy & audio controls
-- `frontend/logo.png` — Custom brand logo
-- `requirements.txt` — Python dependencies
+- **Multi-Language Support:** Translate text seamlessly between dozens of global languages.
+- **FastAPI Backend:** Asynchronous request handling for quick response times.
+- **Clean Interface:** Minimalist, responsive UI built without heavy frontend frameworks.
+- **Serverless Ready:** Pre-configured for deployment on Vercel.
 
 ## Tech Stack
-- **Backend:** Python 3, FastAPI, Uvicorn, Pydantic, `deep-translator`
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript (Fetch API, Web Speech API)
 
-## Running the Project Locally
-1. Clone the repository: `git clone https://github.com/eshajameeltech/CodeAlpha_LanguageTranslator.git`
-2. Create & activate virtual environment: `python -m venv venv` then `.\venv\Scripts\activate`
-3. Install dependencies: `python -m pip install -r requirements.txt`
-4. Start server: `python -m uvicorn backend.main:app --reload`
-5. Open `http://127.0.0.1:8000` in your browser.
+- **Backend:** Python, FastAPI, Uvicorn
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Translation Integration:** Python translation libraries (`deep-translator`)
+- **Deployment:** Vercel
 
----
+## Project Structure
 
-Built by **Esha Jameel**
+```text
+LinguaAI-Translator/
+│
+├── backend/
+│   └── main.py           # FastAPI application and translation API routes
+│
+├── frontend/
+│   ├── index.html        # Main application interface
+│   ├── style.css         # Styling and responsive layout
+│   └── script.js         # Client-side logic and fetch requests
+│
+├── requirements.txt      # Python dependencies
+├── vercel.json           # Vercel routing and build configuration
+└── README.md             # Project documentation
+```
+
+## API Overview
+
+The backend exposes a primary translation endpoint that accepts source text and target language parameters:
+
+- **Endpoint:** `POST /api/translate` (or `/translate` locally)
+- **Payload:** JSON object containing the text to translate, source language, and target language.
+- **Response:** JSON object returning the translated text and status.
+
+## Local Setup and Installation
+
+Follow these steps to run the project locally on your machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/eshajameeltech/LinguaAI-Translator.git](https://github.com/eshajameeltech/LinguaAI-Translator.git)
+   cd LinguaAI-Translator
+   ```
+
+2. **Create and activate a virtual environment:**
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the backend server:**
+   ```bash
+   uvicorn backend.main:app --reload
+   ```
+
+5. **Launch the frontend:**
+   Open `frontend/index.html` directly in your browser or serve it using a local live server.
